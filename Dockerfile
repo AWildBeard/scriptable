@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 	wget \
 	zip \
 	xz-utils && rm -rf /var/lib/apt/lists/*
-RUN adduser -s /bin/bash -S ubuntu
+RUN adduser --shell /bin/bash --system ubuntu
 USER ubuntu
 WORKDIR /home/ubuntu
 CMD "bash"
