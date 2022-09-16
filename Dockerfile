@@ -1,6 +1,6 @@
-FROM alpine:latest
-RUN apk add --no-cache \
-	bind-tools \
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y \
+	dnsutils \
 	curl \
 	bash \
 	jq \
@@ -13,8 +13,8 @@ RUN apk add --no-cache \
 	unzip \
 	wget \
 	zip \
-	xz
-RUN adduser -s /bin/bash -S alpine
-USER alpine
-WORKDIR /home/alpine
+	xz-utils && rm -rf /var/lib/apt/lists/*
+RUN adduser -s /bin/bash -S ubuntu
+USER ubuntu
+WORKDIR /home/ubuntu
 CMD "bash"
