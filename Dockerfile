@@ -5,6 +5,9 @@ RUN apt-get update && apt-get install -y \
 	bash \
 	jq \
 	bzip2 \
+	p7zip-full \
+	iproute2 \
+	iputils-ping \
 	ca-certificates \
 	git \
 	gzip \
