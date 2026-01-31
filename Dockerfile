@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
 	xz-utils && rm -rf /var/lib/apt/lists/*
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
 	install -o root -g root -m 0755 kubectl /usr/bin
-RUN adduser --uid 32323 --gid 32323 --shell /bin/bash --system ubuntu
+# Apparently, the container comes with the 'ubuntu' user now
+# RUN adduser --uid 32323 --gid 32323 --shell /bin/bash --system ubuntu
 USER ubuntu
 WORKDIR /home/ubuntu
 CMD "bash"
